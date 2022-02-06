@@ -64,6 +64,23 @@ h6 {
   display: flex;
   flex-wrap: wrap;
 }
+.hidden {
+  display: none !important;
+}
+.sec-padding {
+  padding: 100px 0;
+}
+
+/* Section Title */
+.section-title {
+  padding: 0 15px;
+  width: 100%;
+}
+.section-title h2 {
+  font-size: 40px;
+  text-transform: capitalize;
+  text-align: center;
+}
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
