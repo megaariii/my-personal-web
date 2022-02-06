@@ -71,6 +71,12 @@ h6 {
   padding: 100px 0;
 }
 
+/* Buttons */
+button {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 /* Section Title */
 .section-title {
   padding: 0 15px;
@@ -219,4 +225,11 @@ Portofolio Section
   color: var(--white-light);
   text-transform: capitalize;
   margin: 0 4px 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.portofolio-filter-btn.active {
+  background-color: var(--main-color);
+  color: var(--white);
+  cursor: auto;
 }
