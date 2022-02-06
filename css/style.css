@@ -199,3 +199,13 @@ About Section
   font-size: 16px;
   text-transform: capitalize;
 }
+
+/* ------------- 
+Portofolio Section
+------------------ */
+.portofolio-filter {
+  background-color: red;
+  padding: 0 15px;
+  width: 100%;
+  text-align: center;
+}
