@@ -205,8 +205,18 @@ About Section
 Portofolio Section
 ------------------ */
 .portofolio-filter {
-  background-color: red;
   padding: 0 15px;
   width: 100%;
   text-align: center;
+}
+
+.portofolio-filter-btn {
+  padding: 4px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--dark-light);
+  color: var(--white-light);
+  text-transform: capitalize;
+  margin: 0 4px 10px;
 }
