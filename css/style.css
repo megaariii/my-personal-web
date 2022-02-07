@@ -76,6 +76,36 @@ button {
   font-family: inherit;
   font-weight: inherit;
 }
+.btn {
+  background-color: var(--main-color);
+  padding: 9px 25px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--white);
+  text-transform: capitalize;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--white);
+  transform: translate(4px, 4px);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+@media (min-width: 992px) {
+  .btn:hover::before {
+    transform: translate(0px, 0px);
+  }
+}
 
 /* Section Title */
 .section-title {
@@ -210,10 +240,14 @@ About Section
 /* ------------- 
 Portofolio Section
 ------------------ */
+.portofolio-section {
+  padding-bottom: 70px;
+}
 .portofolio-filter {
   padding: 0 15px;
   width: 100%;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .portofolio-filter-btn {
@@ -232,4 +266,58 @@ Portofolio Section
   background-color: var(--main-color);
   color: var(--white);
   cursor: auto;
+}
+.portofolio-item {
+  width: calc((100% / 3) - 30px);
+  margin: 0 15px 30px;
+  cursor: pointer;
+}
+.portofolio-item-thumbnail {
+  position: relative;
+}
+.portofolio-item-thumbnail::before,
+.portofolio-item-thumbnail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: var(--dark-light);
+  opacity: 0.8;
+  transition: height 0.3s ease;
+}
+.portofolio-item-thumbnail::before {
+  top: 0;
+}
+.portofolio-item-thumbnail::after {
+  bottom: 0;
+}
+.portofolio-item:hover .portofolio-item-thumbnail::before,
+.portofolio-item:hover .portofolio-item-thumbnail::after {
+  height: 50%;
+}
+.portofolio-item-thumbnail .btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.portofolio-item:hover .portofolio-item-thumbnail .btn {
+  transition-delay: 0.2s;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.portofolio-item img {
+  width: 100%;
+}
+.portofolio-item h3 {
+  font-size: 20px;
+  margin: 10px 0 5px;
+  text-transform: capitalize;
+}
+.portofolio-item-details {
+  display: none;
 }
