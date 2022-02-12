@@ -321,3 +321,31 @@ Portofolio Section
 .portofolio-item-details {
   display: none;
 }
+
+/* -------------------
+Portofolio Popup 
+---------------------*/
+.portofolio-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 200;
+}
+.portofolio-popup::before,
+.portofolio-popup::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background-color: var(--dark-light);
+}
+.portofolio-popup::before {
+  top: 0;
+  left: 0;
+}
+.portofolio-popup::after {
+  right: 0;
+  bottom: 0;
+}
