@@ -11,3 +11,18 @@ function bgAnimationItems() {
   }
 }
 bgAnimationItems();
+
+// Filter Portofolio Items
+function filterItems(filterBtn) {
+  const selectedCategory = filterBtn.getAttribute("data-filter");
+  document.querySelectorAll(".portofolio-item").forEach((item) => {
+    const category = item.getAttribute("data-category").split(",");
+    if (category.indexOf(selectedCategory) !== -1) {
+      item.classList.add("show");
+    } else {
+      item.classList.remove("show");
+    }
+  });
+}
+// Filter Active Categort Portofolio Items
+filterItems(document.querySelector(".portofolio-filter-btn.active"));

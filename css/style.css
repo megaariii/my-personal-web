@@ -36,7 +36,6 @@ body {
   background-color: var(--dark);
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 a {
   text-decoration: none;
@@ -302,6 +301,10 @@ Portofolio Section
   width: calc((100% / 3) - 30px);
   margin: 0 15px 30px;
   cursor: pointer;
+  display: none;
+}
+.portofolio-item.show {
+  display: block;
 }
 .portofolio-item-thumbnail {
   position: relative;
@@ -363,6 +366,7 @@ Portofolio Popup
   height: 100%;
   width: 100%;
   z-index: 200;
+  visibility: hidden;
 }
 .portofolio-popup::before,
 .portofolio-popup::after {
