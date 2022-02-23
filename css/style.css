@@ -37,6 +37,9 @@ body {
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
 }
+body.hide-scrolling {
+  overflow-y: hidden;
+}
 a {
   text-decoration: none;
 }
@@ -297,6 +300,39 @@ Portofolio Section
   color: var(--white);
   cursor: auto;
 }
+.filter-status {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--dark-light);
+  z-index: 201;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease 0.2s;
+}
+.filter-status.active {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+.filter-status p {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: var(--white);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.filter-status.active p {
+  opacity: 1;
+}
+.filter-status p span {
+  font-weight: 600;
+}
 .portofolio-item {
   width: calc((100% / 3) - 30px);
   margin: 0 15px 30px;
@@ -368,14 +404,18 @@ Portofolio Popup
   z-index: 200;
   visibility: hidden;
 }
+.portofolio-popup.open {
+  visibility: visible;
+}
 .portofolio-popup::before,
 .portofolio-popup::after {
   content: "";
   position: absolute;
   height: 50%;
-  width: 100%;
+  width: 0%;
   background-color: var(--dark-light);
   z-index: -1;
+  transition: all 0.5s ease 0.5s;
 }
 .portofolio-popup::before {
   top: 0;
@@ -385,9 +425,74 @@ Portofolio Popup
   right: 0;
   bottom: 0;
 }
+.portofolio-popup.open::before,
+.portofolio-popup.open::after {
+  width: 100%;
+  transition-delay: 0s;
+}
+.pp-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  visibility: hidden;
+}
+.pp-overlay.prev,
+.pp-overlay.next {
+  visibility: visible;
+}
+.pp-overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--dark);
+}
+.pp-overlay.next::before {
+  animation: nextItem 1s ease forwards;
+}
+@keyframes nextItem {
+  0% {
+    transform: translateX(-100%);
+  }
+  40%,
+  60% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.pp-overlay.prev::before {
+  animation: prevItem 1s ease forwards;
+}
+@keyframes prevItem {
+  0% {
+    transform: translateX(100%);
+  }
+  40%,
+  60% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 .pp-inner {
   height: 100vh;
   padding: 0 15px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform: translateY(20%);
+}
+.portofolio-popup.open .pp-inner {
+  opacity: 1;
+  transition-delay: 0.5s;
+  transform: translateY(0%);
   overflow-y: auto;
 }
 .pp-content {
