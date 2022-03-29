@@ -145,3 +145,11 @@ function changePortofolioItem(direction) {
     document.querySelector(".pp-overlay").classList.remove(direction);
   }, 1000);
 }
+
+// Toggle Contact Form
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("toggle-contact-form-btn")) {
+    document.querySelector(".contact-form").classList.toggle("open");
+    toggleBodyScrolling;
+  }
+});
